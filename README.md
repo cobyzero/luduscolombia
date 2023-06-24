@@ -2,6 +2,11 @@
 
 A new Flutter project.
 
+
+## Detalles de uso
+
+El formulario solo valida si el correo esta bien escrito(uso de @ y .com) y en la contraseña que la longitud sea mayor a 8, puede utilizar cualquier dato.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
