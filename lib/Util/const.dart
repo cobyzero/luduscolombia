@@ -1,0 +1,1 @@
+const WIDTH_WIDGETS = 300.0;

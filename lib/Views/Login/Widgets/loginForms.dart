@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:luduscolombia/Service/loginService.dart';
+import 'package:luduscolombia/Util/common.dart';
 import 'package:luduscolombia/Views/Widgets/myTextFormField.dart';
 
 class LoginForms extends StatelessWidget {
   final TextEditingController _emailController;
   final TextEditingController _passwordController;
   final LoginService _loginService;
+
   const LoginForms(this._emailController, this._passwordController, this._loginService,
       {super.key});
 
@@ -18,24 +20,25 @@ class LoginForms extends StatelessWidget {
          */
         MyTextFormField(
           controller: _emailController,
-          text: "E-mail",
-          obscureText: true,
+          text: "Correo",
+          subText: "test@gmail.com",
           validator: (value) => _loginService.validateEmail(value!),
           textInputType: TextInputType.emailAddress,
         ),
         /**
          * Space
          */
-        const SizedBox(height: 16.0),
+        space(h: 16.0),
         /**
          * Form Password
          */
         MyTextFormField(
           controller: _passwordController,
-          text: "Password",
+          text: "Contraseña",
+          subText: "***********",
           obscureText: true,
           validator: (value) => _loginService.validatePassword(value!),
-        )
+        ),
       ],
     );
   }

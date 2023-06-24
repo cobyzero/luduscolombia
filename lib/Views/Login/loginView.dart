@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:luduscolombia/Service/loginService.dart';
-import 'package:luduscolombia/Views/Login/Widgets/loginElevatedButton.dart';
+import 'package:luduscolombia/Util/common.dart';
 import 'package:luduscolombia/Views/Login/Widgets/loginForms.dart';
 import 'package:luduscolombia/Views/Login/Widgets/loginTitle.dart';
+import 'package:luduscolombia/Views/Widgets/myElevatedButton.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,25 +29,38 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            /**
-             * Widget Title[Login]
-             */
-            const LoginTitle(),
-            /**
-             * Space
-             */
-            const SizedBox(height: 16.0),
-            /**
-             * Widget Forms[Login]
-             */
-            LoginForms(_emailController, _passwordController, _loginService),
-            /**
-             * Widget Button[Login]
-             */
-            LoginElevatedButton(_loginService)
-          ],
+        child: Center(
+          child: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                /**
+                 * Widget Title[Login]
+                 */
+                const LoginTitle(),
+                /**
+                 * Space
+                 */
+                space(h: 16.0),
+                /**
+                 * Widget Forms[Login]
+                 */
+                LoginForms(_emailController, _passwordController, _loginService),
+                /**
+                 * Space
+                 */
+                space(h: 16.0),
+                /**
+                 * Widget Button[Login]
+                 */
+                MyElevatedButton(
+                  fun: () => _loginService.login(),
+                  text: "Ingresar",
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

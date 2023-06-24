@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:luduscolombia/Util/common.dart';
+import 'package:luduscolombia/Util/const.dart';
 
+// ignore: must_be_immutable
 class MyTextFormField extends StatelessWidget {
   MyTextFormField(
       {required this.controller,
@@ -7,6 +10,7 @@ class MyTextFormField extends StatelessWidget {
       this.validator,
       this.obscureText = false,
       this.textInputType,
+      this.subText,
       super.key});
 
   String text;
@@ -14,23 +18,40 @@ class MyTextFormField extends StatelessWidget {
   bool obscureText;
   String? Function(String?)? validator;
   TextInputType? textInputType;
+  String? subText;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(text),
+        /**
+         * Text Title
+         */
+        Text(
+          text,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        /**
+         * Space
+         */
+        space(h: 10),
+        /**
+         * Form
+         */
         SizedBox(
-          width: 300,
+          width: WIDTH_WIDGETS,
           child: TextFormField(
             keyboardType: textInputType,
             controller: controller,
             obscureText: obscureText,
-            decoration: const InputDecoration(
-                focusedBorder: OutlineInputBorder(
+            decoration: InputDecoration(
+                hintText: subText ?? text,
+                focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.purple),
                 ),
-                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey))),
+                enabledBorder:
+                    const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey))),
             validator: validator,
           ),
         )

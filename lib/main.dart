@@ -12,9 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Ludus Colombia Test',
-        theme: ThemeData(useMaterial3: true),
-        initialRoute: 'login',
-        getPages: routesApp());
+      title: 'Ludus Colombia Test',
+      theme: ThemeData(useMaterial3: true),
+      initialRoute: 'login',
+      getPages: routesApp(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

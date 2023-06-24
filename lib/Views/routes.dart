@@ -4,7 +4,7 @@ import 'package:luduscolombia/Views/Login/loginView.dart';
 
 List<GetPage<dynamic>> routesApp() {
   return [
-    GetPage(name: '/', page: () => LoginView()),
+    GetPage(name: '/login', page: () => LoginView()),
     GetPage(name: '/home', page: () => HomePage()),
   ];
 }

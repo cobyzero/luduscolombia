@@ -6,7 +6,7 @@ class LoginTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      "Login Test",
+      "Iniciar Sesion",
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
     );
   }
