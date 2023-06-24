@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Ludus Colombia Test',
       theme: ThemeData(useMaterial3: true),
-      initialRoute: 'login',
+      initialRoute: '/login',
       getPages: routesApp(),
       debugShowCheckedModeBanner: false,
     );
